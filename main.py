@@ -7,7 +7,7 @@ from deep_translator import GoogleTranslator
 
 bot = Bot(token=TOKEN)
 dp=Dispatcher()
-translator = GoogleTranslator(source="auto", target="ru")
+translator = GoogleTranslator(source="auto", target="en")
 
 @dp.message(CommandStart())
 async def start(message: Message):
@@ -39,7 +39,7 @@ async def translate_text(message: Message):
 
     try:
         translated = translator.translate(original_text)
-        await message.answer(f" Перевод на русский:\n{translated}")
+        await message.answer(f" Перевод на английский:\n{translated}")
     except Exception:
         await message.answer("Не удалось перевести текст. Проверьте подключение к интернету.")
 
